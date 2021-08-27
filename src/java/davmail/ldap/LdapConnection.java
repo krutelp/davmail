@@ -744,7 +744,10 @@ public class LdapConnection extends AbstractConnection {
                     int[] seqSize = new int[1];
                     int ldapFilterOperator = reqBer.parseSeq(seqSize);
                     int subEnd = reqBer.getParsePosition() + seqSize[0];
-                    nestedFilter.add(parseNestedFilter(reqBer, ldapFilterOperator, subEnd));
+                    LdapFilter parsedFilter = parseNestedFilter(reqBer, ldapFilterOperator, subEnd);
+                    if (!parsedFilter.isEmpty()) {
+                        nestedFilter.add(parsedFilter);
+                    }
                 }
             }
         } else {
@@ -1028,6 +1031,8 @@ public class LdapConnection extends AbstractConnection {
         boolean isFullSearch();
 
         boolean isMatch(ExchangeSession.Contact person);
+        
+        boolean isEmpty();
     }
 
     class CompoundFilter implements LdapFilter {
@@ -1036,6 +1041,14 @@ public class LdapConnection extends AbstractConnection {
 
         CompoundFilter(int filterType) {
             type = filterType;
+        }
+        
+        public boolean isEmpty() {
+            boolean empty = true;
+            for (LdapFilter filter: criteria) {
+                empty &= filter.isEmpty();
+            }
+            return empty;
         }
 
         @Override
@@ -1236,6 +1249,10 @@ public class LdapConnection extends AbstractConnection {
         public boolean isFullSearch() {
             // only (objectclass=*) is a full search
             return "objectclass".equals(attributeName) && STAR.equals(value);
+        }
+        
+        public boolean isEmpty() {
+            return (value == null) || (value.isEmpty());
         }
 
         @Override
