@@ -288,7 +288,7 @@
             <version>1.4.0</version>
         </dependency>
         <!-- JDK 11 only JavaFX dependencies -->
-        <!--dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>11</version>
@@ -302,7 +302,7 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
             <version>11</version>
-        </dependency-->
+        </dependency>
     </dependencies>
     <pluginRepositories>
         <pluginRepository>
@@ -318,7 +318,7 @@
             <resource>
                 <directory>src/java</directory>
                 <excludes>
-                    <exclude>**/O365Interactive*.java</exclude>
+                    <exclude>**/*.java</exclude>
                 </excludes>
             </resource>
         </resources>
@@ -330,9 +330,6 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <excludes>
-                        <exclude>**/O365Interactive*.java</exclude>
-                    </excludes>
                 </configuration>
                 <version>3.3</version>
             </plugin>

@@ -1,6 +1,7 @@
-*.log
+*.log*
 dist/*
 target/*
 *.iml
 *.iws
 *.ipr
+/target/
