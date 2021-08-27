@@ -1323,7 +1323,7 @@ public class LdapConnection extends AbstractConnection {
 
             if (contactAttributeName != null) {
                 // quick fix for cn=* filter
-                Map<String, ExchangeSession.Contact> galPersons = session.galFind(session.startsWith(contactAttributeName, "*".equals(value) ? "A" : value),
+                Map<String, ExchangeSession.Contact> galPersons = session.galFind(session.contains(contactAttributeName, "*".equals(value) ? "A" : value),
                         convertLdapToContactReturningAttributes(returningAttributes), sizeLimit);
 
                 if (operator == LDAP_FILTER_EQUALITY) {
