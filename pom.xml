@@ -8,7 +8,7 @@
     <version>6.0.1</version>
     <name>DavMail POP/IMAP/SMTP/Caldav/Carddav/LDAP Exchange and Office 365 Gateway</name>
     <organization>
-        <name>Mickaël Guessant</name>
+        <name>Mickaï¿½l Guessant</name>
     </organization>
     <url>http://www.sourceforge.net/projects/davmail</url>
     <inceptionYear>2001</inceptionYear>
@@ -35,7 +35,7 @@
     </properties>
     <developers>
         <developer>
-            <name>Mickaël Guessant</name>
+            <name>Mickaï¿½l Guessant</name>
             <id>mguessan</id>
             <email>mguessan@free.fr</email>
             <url>http://mguessan.free.fr</url>
@@ -276,7 +276,7 @@
             <version>1.4.0</version>
         </dependency>
         <!-- JDK 11 only JavaFX dependencies -->
-        <!--dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>11</version>
@@ -290,7 +290,7 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
             <version>11</version>
-        </dependency-->
+        </dependency>
     </dependencies>
     <pluginRepositories>
         <pluginRepository>
@@ -306,7 +306,7 @@
             <resource>
                 <directory>src/java</directory>
                 <excludes>
-                    <exclude>**/O365Interactive*.java</exclude>
+                    <exclude>**/*.java</exclude>
                 </excludes>
             </resource>
         </resources>
@@ -318,9 +318,6 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <excludes>
-                        <exclude>**/O365Interactive*.java</exclude>
-                    </excludes>
                 </configuration>
                 <version>3.3</version>
             </plugin>
